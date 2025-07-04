@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Jasmine Ann Julian</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4em;
+      margin: 0 0 10px;
+    }
+    header p {
+      font-size: 1.2em;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #b30059;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 220px;
+      border-radius: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .countdown {
+      font-size: 1.2em;
+      background: #fff5fa;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    ul {
+      line-height: 2;
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li::before {
+      content: '❤️';
+      margin-right: 10px;
+    }
+    audio {
+      width: 100%;
+      margin-top: 20px;
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #fff0f5;
+      color: #888;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <canvas class="hearts"></canvas>
+  <header>
+    <h1>To My Honey, Jasmine Ann Julian</h1>
+    <p>From your one and only, Jonmar Cholo Merilou ❤️</p>
+  </header>
+
+  <section>
+    <h2>💌 Love Letter</h2>
+    <p>My dearest Jasmine,</p>
+    <p>Hello honey it's me cholo po your honeyy as i'm making this website may  lagnat ka rn i hopepo na mapasaya ka nento and medyo gumaan yung pakiramdam mo po also this is my way din po of saying sorry just to add up bakit ganon yung kulay because favorite color mo siya you said. I LOVE YOU SO MUCH HONEYY ❤️</p>
+    <p>Always yours,<br>Cholo</p>
+  </section>
+
+  <section>
+    <h2>📸 Our Memories</h2>
+    <div class="gallery">
+      <img src="pic/IMG_2264.JPG" alt="Photo 1">
+      <img src="pic/IMG_2667.JPG" alt="Photo 2">
+      <img src="pic/IMG_3296.JPG" alt="Photo 3">
+      <img src="pic/E706E9BF-D3E1-47AD-BC51-09EF3A0C2723.jpg" alt="Photo 4">
+    </div>
+  </section>
+
+  <section>
+    <h2>📅 Our Timeline</h2>
+    <ul>
+      <li>First Monthsary: July 25 2026</li>
+      <li>Anniversary: July 25 2026</li>
+      <li>Her Birthday: August 24 2025</li>
+      <li>Monthly Celebration: Every 25th</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>❤️ 10 Reasons Why I Love You</h2>
+    <ul>
+      <li>Your smile can light up my world.</li>
+      <li>You love me even when I’m at my worst.</li>
+      <li>You inspire me to be a better person.</li>
+      <li>We laugh together like best friends.</li>
+      <li>You’re my peace in chaos.</li>
+      <li>Your voice calms my heart.</li>
+      <li>You understand me without words.</li>
+      <li>Every moment with you feels like magic.</li>
+      <li>You believe in us no matter what.</li>
+      <li>You are, simply, my everything.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🎶 Our Song</h2>
+    <p><strong>Ikaw at Ako</strong></p>
+    <audio controls>
+      <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
+  <section>
+    <h2>⏳ Countdown to Our Special Dates</h2>
+    <div class="countdown" id="countdowns"></div>
+  </section>
+
+  <footer>
+    Made with ❤️ by Jonmar Cholo Merilou for Jasmine Ann Julian
+  </footer>
+
+  <script>
+    const countdowns = document.getElementById('countdowns');
+    const dates = [
+      { name: "Anniversary", date: new Date("July 25, 2026") },
+      { name: "Her Birthday", date: new Date("August 24, 2025") },
+      { name: "Next Monthsary", date: new Date("July 25, 2025") }
+    ];
+
+    function updateCountdowns() {
+      countdowns.innerHTML = dates.map(({ name, date }) => {
+        const now = new Date();
+        const diff = Math.max(0, date - now);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        return `<p><strong>${name}:</strong> ${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
+      }).join('');
+    }
+    setInterval(updateCountdowns, 1000);
+  </script>
+
+  <script>
+    const canvas = document.querySelector('.hearts');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext('2d');
+    const hearts = [];
+    for (let i = 0; i < 50; i++) {
+      hearts.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 10 + 5,
+        speed: Math.random() * 1 + 0.5
+      });
+    }
+    function drawHearts() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(255,105,180,0.8)';
+      for (const h of hearts) {
+        ctx.beginPath();
+        ctx.moveTo(h.x, h.y);
+        ctx.arc(h.x - h.size / 2, h.y, h.size / 2, 0, Math.PI * 2);
+        ctx.arc(h.x + h.size / 2, h.y, h.size / 2, 0, Math.PI * 2);
+        ctx.fill();
+        h.y += h.speed;
+        if (h.y > canvas.height) h.y = 0;
+      }
+      requestAnimationFrame(drawHearts);
+    }
+    drawHearts();
+  </script>
+</body>
+</html>
